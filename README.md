@@ -1,6 +1,6 @@
 # M8 — Programming: Frameworks and Architectural Patterns
 
-**M8. Programmeerimine: Raamistikud ja arhitektuurimustrid** · TA-25
+**M8. Programmeerimine: Raamistikud ja arhitektuurimustrid**
 
 Student guide for the module. You will build one real web application — **Billable**, a time-tracking
 and invoicing tool — in a web framework of your choice, and along the way learn the patterns,
@@ -9,8 +9,8 @@ team can maintain.
 
 | | |
 |---|---|
-| Contact hours | 30 (A: 30/4) — 15 lessons of 2 hours |
-| Independent work | 35 hours (I: 35/0) |
+| Length | 15 lessons × 2 h in class |
+| Independent work | ~2 h after each lesson, ~35 h in total ([plan](#planning-your-independent-work-35-h)) |
 | Tracks | **Laravel** (PHP) or **Spring Boot** (Java) — you pick one |
 | Before you start | [PHP OOP fundamentals](https://github.com/kuressaareametikool/VILT-crud-cycle/blob/main/php-oop-lesson-guide.md) |
 | Assessment | [Capstone brief and rubric](CAPSTONE.md) |

@@ -792,7 +792,7 @@ Controller — change `index()` to take the request (import `Illuminate\Http\Req
 
         $clients = Client::query()
             ->withCount('projects')
-            ->when($search !== '', fn ($query) => $query->whereLike('name', '%'.$search.'%'))
+            ->when($search !== '', fn ($query) => $query->whereLike('name', '%'.addcslashes($search, '%_\\').'%'))
             ->orderBy('name')
             ->orderBy('id')
             ->paginate(10)
@@ -807,6 +807,9 @@ Controller — change `index()` to take the request (import `Illuminate\Http\Req
 3. `whereLike('name', '%kala%')` is case-insensitive by default; on PostgreSQL Laravel sends
    `"name"::text ilike ?`. The value is a **bound parameter** — no SQL injection. (Older tutorials use
    `where('name', 'ilike', ...)`, which works only on PostgreSQL.)
+   `addcslashes($search, '%_\\')` puts a backslash in front of `%`, `_` and `\`. In LIKE, `%` and `_` are
+   wildcards; without escaping, a search for `_` would match every client. Laravel does not escape them for
+   you (Spring Data does). PostgreSQL uses `\` as the default LIKE escape character.
 4. `->withQueryString()` makes the pagination links keep `q=kala`.
 
 View — add the form above the table and change the empty state:
@@ -866,7 +869,7 @@ Check: `/clients?q=KALA` shows Kuressaare Kala AS; `/clients?q=<b>x</b>` shows *
 
         $clients = Client::query()
             ->withCount('projects')
-            ->when($search !== '', fn ($query) => $query->whereLike('name', '%'.$search.'%'))
+            ->when($search !== '', fn ($query) => $query->whereLike('name', '%'.addcslashes($search, '%_\\').'%'))
             ->orderBy(self::SORTABLE[$sort], $direction)
             ->orderBy('id')
             ->paginate(10)

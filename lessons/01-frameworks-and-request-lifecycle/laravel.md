@@ -369,7 +369,7 @@ Create `resources/views/layouts/app.blade.php`:
     </main>
 
     <footer class="container">
-        <small>Billable · TA-25</small>
+        <small>Billable</small>
     </footer>
 </body>
 </html>

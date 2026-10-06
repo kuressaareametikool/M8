@@ -217,9 +217,9 @@ Create `CODESTYLE.md` in the project root:
 
 ```markdown
 <!-- CODESTYLE.md -->
-# Code standard — Billable (TA-25)
+# Code standard — Billable
 
-**Agreed by the TA-25 group on 2026-10-07** (lesson 02). Changes need a group decision and a new date
+**Agreed by the group on 2026-10-07** (lesson 02). Changes need a group decision and a new date
 in the change log at the end of this file.
 
 ## 1. Tools

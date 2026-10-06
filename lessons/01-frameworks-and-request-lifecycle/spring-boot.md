@@ -399,7 +399,7 @@ puts them in the right places. Create `src/main/resources/templates/layout.html`
 </main>
 
 <footer class="container">
-  <small>Billable · TA-25</small>
+  <small>Billable</small>
 </footer>
 
 </body>

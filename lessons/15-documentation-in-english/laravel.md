@@ -280,7 +280,7 @@ The other business constants (due date 14 days, budget warning at 80 %) are defi
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE). Author: Your Name, TA-25, Kuressaare Ametikool.
+MIT — see [LICENSE](LICENSE). Author: Your Name, Kuressaare Ametikool.
 ````
 
 **What happens:**
@@ -1061,7 +1061,7 @@ stateDiagram-v2
     paid --> [*]
 
     note right of draft
-        Editable and deletable.
+        The only state that may change (R13).
         Its time entries are locked (R14).
     end note
     note right of sent
@@ -1660,7 +1660,7 @@ Give your classmate this template. They fill it in while they work; you add the 
 <!-- docs/fresh-eyes-notes.md -->
 # Fresh-eyes test of the README
 
-- **Tester:** Mari Tamm (TA-25)
+- **Tester:** Mari Tamm
 - **Date:** 2026-10-20
 - **Machine:** Windows 11, Laravel Herd, Docker Desktop 4
 - **Commit tested:** `a1b2c3d`

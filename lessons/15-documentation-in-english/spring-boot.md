@@ -282,7 +282,7 @@ they are business rules. The rules R1–R14 are listed in [docs/architecture.md]
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE). Author: Your Name, TA-25, Kuressaare Ametikool.
+MIT — see [LICENSE](LICENSE). Author: Your Name, Kuressaare Ametikool.
 ````
 
 **What happens:**
@@ -1636,7 +1636,7 @@ Negative:
 Rejected: option 1 still shows errors to users and needs retry logic. Option 2 is fast, but sequences
 are not transactional: a rolled-back transaction still consumes the number, which creates gaps.
 Option 4 works but needs a retry loop; the `version` column on `invoices` solves a different problem
-(two people editing the same draft).
+(two people changing the same invoice at once, e.g. both pressing *Mark paid*).
 ```
 
 ```markdown
@@ -1701,7 +1701,7 @@ Give your classmate this template. They fill it in while they work; you add the 
 <!-- docs/fresh-eyes-notes.md -->
 # Fresh-eyes test of the README
 
-- **Tester:** Mari Tamm (TA-25)
+- **Tester:** Mari Tamm
 - **Date:** 2026-10-20
 - **Machine:** macOS 15, Docker Desktop 4, IntelliJ IDEA Community
 - **Commit tested:** `a1b2c3d`
