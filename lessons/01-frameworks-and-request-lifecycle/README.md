@@ -172,7 +172,7 @@ flowchart LR
     A --> K[HTTP Kernel]
     K --> M[Middleware<br/>session, cookies, CSRF]
     M --> R[Router<br/>routes/web.php]
-    R --> C[HomeController@index]
+    R --> C["HomeController@index"]
     C --> V[View<br/>home.blade.php]
     V --> RESP[Response object]
     RESP -->|back out through middleware| B

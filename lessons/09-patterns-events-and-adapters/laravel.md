@@ -44,7 +44,12 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U billable -d billable"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   mailpit:
     image: axllent/mailpit
@@ -53,11 +58,10 @@ services:
       - "8025:8025" # Web UI: you read the mail here
 
 volumes:
-  postgres-data:
+  pgdata:
 ```
 
-Your `postgres` service may look slightly different (volume name, health check). Do not change it —
-only add the `mailpit` block.
+The `postgres` service is unchanged from lesson 01 — only add the `mailpit` block.
 
 Start it:
 
@@ -955,7 +959,7 @@ classDiagram
     Notifier <|.. MailNotifier
     Notifier <|.. LogNotifier
     BudgetMonitor --> Notifier
-    MailNotifier --> Mail : Mail::raw()
+    MailNotifier --> Mail : Mail#colon;#colon;raw()
     LogNotifier --> LoggerInterface
 ```
 
