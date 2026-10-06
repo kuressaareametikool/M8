@@ -147,6 +147,9 @@ Install before lesson 01. Lesson 01's walkthrough has details and troubleshootin
 | Docker Desktop (runs PostgreSQL) | Laravel installer (`composer global require laravel/installer`) | IntelliJ IDEA (Community is enough) or VS Code with Java extensions |
 | A code editor (VS Code, PhpStorm, IntelliJ) | | Maven comes with the project (`./mvnw`) |
 
+Spring Boot track on a PC where you cannot install or run a JDK? Docker is enough: see
+[Spring Boot track — everything in Docker](SPRING-BOOT-IN-DOCKER.md).
+
 ---
 
 ## Using AI assistants
@@ -164,5 +167,6 @@ You may use AI assistants — you will at work. The rules:
 
 - [PROJECT.md](PROJECT.md) — the Billable domain, business rules, data model and code map
 - [CAPSTONE.md](CAPSTONE.md) — what you submit and how it is assessed
+- [SPRING-BOOT-IN-DOCKER.md](SPRING-BOOT-IN-DOCKER.md) — run the Spring Boot track with only Docker, no local JDK
 - [PHP OOP fundamentals](https://github.com/kuressaareametikool/VILT-crud-cycle/blob/main/php-oop-lesson-guide.md) — start here if classes and interfaces feel shaky
 - [Laravel request lifecycle (VILT)](https://github.com/kuressaareametikool/VILT-crud-cycle) — a deeper look at how data flows through Laravel
