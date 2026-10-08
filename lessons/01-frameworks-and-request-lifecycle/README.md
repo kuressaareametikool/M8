@@ -355,7 +355,7 @@ fresh, empty database in seconds.
 
 ## Independent work (~2 h)
 
-Solutions are at the bottom of each walkthrough.
+Do these at home after the walkthrough, in your own project (~2 h). Tasks build on each other across lessons, so finish at least the **Basic** ones. Solutions are at the bottom of the [Laravel](laravel.md#independent-work--solutions) and [Spring Boot](spring-boot.md#independent-work--solutions) walkthroughs — try first, compare after.
 
 ### Task 1 — About page · **Basic**
 

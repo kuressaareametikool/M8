@@ -457,6 +457,8 @@ the controller has *one* place to ask.
 
 ## Independent work (~2 h)
 
+Do these at home after the walkthrough, in your own project (~2 h). Tasks build on each other across lessons, so finish at least the **Basic** ones. Solutions are at the bottom of the [Laravel](laravel.md#independent-work--solutions) and [Spring Boot](spring-boot.md#independent-work--solutions) walkthroughs — try first, compare after.
+
 **Basic 1 — Extract the remaining logic from controllers.**
 Laravel: create `ClientService` and `ProjectService`. Spring: create `ProjectService` (the `ClientService`
 was built in class).

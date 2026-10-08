@@ -1,6 +1,6 @@
 # 14 — Integration tests and data integrity · Spring Boot
 
-[← Concepts](README.md) · Starting point: end of lesson 13 · Estimated time in class: 2 h
+[← Concepts](README.md) · Starting point: end of lesson 13 · Estimated time in class: 2 h · Independent work tasks: [README](README.md#independent-work-2-h)
 
 ## What we build today
 
@@ -1086,6 +1086,11 @@ class InvoiceOptimisticLockingTest extends IntegrationTest {
 ---
 
 ## Independent work — solutions
+
+> **The tasks are not here.** The task descriptions (Basic / Intermediate / Advanced, with acceptance
+> criteria) are in this lesson's [README.md → Independent work (~2 h)](README.md#independent-work-2-h).
+> Read them there first and build the features in your project. This section only contains the
+> solutions — try each task yourself, then open a solution to compare or when you are stuck.
 
 <details>
 <summary>Task 1 — More end-to-end tests for the main flows (Basic)</summary>

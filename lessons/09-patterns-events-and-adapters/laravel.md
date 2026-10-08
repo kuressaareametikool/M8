@@ -1,6 +1,6 @@
 # 09 — Patterns II: Observer, Adapter, Decorator · Laravel
 
-[← Concepts](README.md) · Starting point: end of lesson 08 · Estimated time in class: 2 h
+[← Concepts](README.md) · Starting point: end of lesson 08 · Estimated time in class: 2 h · Independent work tasks: [README](README.md#independent-work-2-h)
 
 ---
 
@@ -897,6 +897,11 @@ Run the formatter before you commit:
 ---
 
 ## Independent work — solutions
+
+> **The tasks are not here.** The task descriptions (Basic / Intermediate / Advanced, with acceptance
+> criteria) are in this lesson's [README.md → Independent work (~2 h)](README.md#independent-work-2-h).
+> Read them there first and build the features in your project. This section only contains the
+> solutions — try each task yourself, then open a solution to compare or when you are stuck.
 
 <details>
 <summary>Task 1 — docs/patterns.md: Observer and Adapter</summary>

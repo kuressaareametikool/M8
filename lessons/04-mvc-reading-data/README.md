@@ -354,6 +354,8 @@ helper with a `Money` class.**
 
 ## Independent work (~2 h)
 
+Do these at home after the walkthrough, in your own project (~2 h). Tasks build on each other across lessons, so finish at least the **Basic** ones. Solutions are at the bottom of the [Laravel](laravel.md#independent-work--solutions) and [Spring Boot](spring-boot.md#independent-work--solutions) walkthroughs — try first, compare after.
+
 ### Basic — Project list and project page (shallow nesting)
 
 Add a `ProjectController` with two pages:

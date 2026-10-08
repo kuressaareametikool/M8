@@ -423,6 +423,8 @@ Make it a habit: when you write a new query, look at the SQL once.
 
 ## Independent work (~2 h)
 
+Do these at home after the walkthrough, in your own project (~2 h). Tasks build on each other across lessons, so finish at least the **Basic** ones. Solutions are at the bottom of the [Laravel](laravel.md#independent-work--solutions) and [Spring Boot](spring-boot.md#independent-work--solutions) walkthroughs — try first, compare after.
+
 Your seed data must match the table in [section 8](#8-seeding-and-factories). Reset the database first
 (Laravel: `php artisan migrate:fresh --seed`; Spring: see the walkthrough), so the expected results below
 are correct.

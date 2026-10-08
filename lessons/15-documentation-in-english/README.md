@@ -473,6 +473,8 @@ Every point in their notes is a documentation bug. Doing this and attaching the 
 
 ## Independent work (~2 h)
 
+Do these at home after the walkthrough, in your own project (~2 h). Tasks build on each other across lessons, so finish at least the **Basic** ones. Solutions are at the bottom of the [Laravel](laravel.md#independent-work--solutions) and [Spring Boot](spring-boot.md#independent-work--solutions) walkthroughs — try first, compare after.
+
 **Basic** (required)
 
 1. **Remaining ADRs.** Complete `docs/adr/0002-invoice-sequence-row-lock.md` and
@@ -504,8 +506,6 @@ Every point in their notes is a documentation bug. Doing this and attaching the 
    *Acceptance:* the guide has a goal, prerequisites, numbered imperative steps, the expected result, and
    what to do when the overlap error appears; it contains no explanation of internals (link to
    `algorithm.md` instead).
-
-Solutions are at the end of each walkthrough.
 
 ---
 

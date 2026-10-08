@@ -1,6 +1,6 @@
 # 06 — ORM: relationships and the N+1 problem · Laravel
 
-[← Concepts](README.md) · Starting point: end of lesson 05 · Estimated time in class: 2 h
+[← Concepts](README.md) · Starting point: end of lesson 05 · Estimated time in class: 2 h · Independent work tasks: [README](README.md#independent-work-2-h)
 
 ---
 
@@ -1029,6 +1029,11 @@ has a small number of queries and no page throws `LazyLoadingViolationException`
 ---
 
 ## Independent work — solutions
+
+> **The tasks are not here.** The task descriptions (Basic / Intermediate / Advanced, with acceptance
+> criteria) are in this lesson's [README.md → Independent work (~2 h)](README.md#independent-work-2-h).
+> Read them there first and build the features in your project. This section only contains the
+> solutions — try each task yourself, then open a solution to compare or when you are stuck.
 
 <details>
 <summary><strong>Basic — tag time entries</strong></summary>

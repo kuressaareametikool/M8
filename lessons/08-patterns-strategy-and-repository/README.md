@@ -374,6 +374,8 @@ examples for `docs/patterns.md`.
 
 ## Independent work (~2 h)
 
+Do these at home after the walkthrough, in your own project (~2 h). Tasks build on each other across lessons, so finish at least the **Basic** ones. Solutions are at the bottom of the [Laravel](laravel.md#independent-work--solutions) and [Spring Boot](spring-boot.md#independent-work--solutions) walkthroughs — try first, compare after.
+
 **Basic 1 — A fourth billing type: `internal`.**
 Internal projects (your own admin, learning) are tracked but never billed.
 - Add the enum case / constant `internal` with the label "Internal (not billed)".

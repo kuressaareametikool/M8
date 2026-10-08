@@ -1,6 +1,6 @@
 # 02 — An agreed code standard · Laravel
 
-[← Concepts](README.md) · Starting point: end of lesson 01 · Estimated time in class: 2 h
+[← Concepts](README.md) · Starting point: end of lesson 01 · Estimated time in class: 2 h · Independent work tasks: [README](README.md#independent-work-2-h)
 
 ---
 
@@ -546,6 +546,11 @@ Student Developer Pack. If you cannot enable it, the rule "no merge while red" i
 ---
 
 ## Independent work — solutions
+
+> **The tasks are not here.** The task descriptions (Basic / Intermediate / Advanced, with acceptance
+> criteria) are in this lesson's [README.md → Independent work (~2 h)](README.md#independent-work-2-h).
+> Read them there first and build the features in your project. This section only contains the
+> solutions — try each task yourself, then open a solution to compare or when you are stuck.
 
 <details>
 <summary>Task 1 — A reviewed pull request (Basic)</summary>

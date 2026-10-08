@@ -506,8 +506,7 @@ machine every time, so it also catches tests that depend on your local database 
 
 ## Independent work (~2 h)
 
-Solutions are at the bottom of the [Laravel](laravel.md#independent-work--solutions) and
-[Spring Boot](spring-boot.md#independent-work--solutions) walkthroughs.
+Do these at home after the walkthrough, in your own project (~2 h). Tasks build on each other across lessons, so finish at least the **Basic** ones. Solutions are at the bottom of the [Laravel](laravel.md#independent-work--solutions) and [Spring Boot](spring-boot.md#independent-work--solutions) walkthroughs — try first, compare after.
 
 ### Task 1 — 15+ meaningful unit tests (Basic)
 

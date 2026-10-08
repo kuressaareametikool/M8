@@ -513,6 +513,8 @@ breaks across two lines. The advanced task explores this.
 
 ## Independent work (~2 h)
 
+Do these at home after the walkthrough, in your own project (~2 h). Tasks build on each other across lessons, so finish at least the **Basic** ones. Solutions are at the bottom of the [Laravel](laravel.md#independent-work--solutions) and [Spring Boot](spring-boot.md#independent-work--solutions) walkthroughs — try first, compare after.
+
 **Basic** tasks are required so your project stays in line with [PROJECT.md](../../PROJECT.md).
 
 ### Task 1 — `DueDateCalculator` (Basic)
