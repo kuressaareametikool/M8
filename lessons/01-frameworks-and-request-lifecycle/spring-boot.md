@@ -1,6 +1,6 @@
 # 01 — Frameworks and the request lifecycle · Spring Boot
 
-[← Concepts](README.md) · Starting point: nothing — this lesson creates the project · Estimated time in class: 2 h
+[← Concepts](README.md) · Starting point: nothing — this lesson creates the project · Estimated time in class: 2 h · Independent work tasks: [README](README.md#independent-work-2-h)
 
 ---
 
@@ -57,7 +57,14 @@ You do **not** need to install Maven. The project contains the **Maven wrapper**
 downloads the right Maven version the first time you use it.
 
 Start **Docker Desktop** and wait until it says it is running. `docker ps` must print a table header,
-not an error.
+not an error. In WSL, run `docker ps` in the WSL terminal. If `docker` is not found
+there, see the WSL box in [Step 3](#step-3--postgresql-in-docker).
+
+> **Windows with WSL?** Choose one place to work and use it for everything. If you work in WSL, install
+> JDK 25 **inside Ubuntu** (the easiest way is [SDKMAN](https://sdkman.io): `sdk install java 25-tem`)
+> and run `./mvnw` in the WSL terminal. A JDK installed on Windows cannot be used from WSL. IntelliJ on
+> Windows can open a project that lives in WSL: *File → Open → `\\wsl$\Ubuntu\home\<you>\projects\billable`*,
+> and it then uses the WSL JDK.
 
 ---
 
@@ -199,6 +206,28 @@ This `main` method is the only `main` you will ever write. After that, Spring ca
 
 **Why:** everybody gets exactly the same database version without installing PostgreSQL, and you can
 reset it in seconds.
+
+> **Windows with WSL — read this before you start.** The commands below are identical in WSL, but
+> three things go wrong:
+>
+> 1. **Wrong folder.** Your project must be in the Linux file system, e.g. `~/projects/billable`. Run
+>    `pwd`. If the path starts with `/mnt/c/`, the project is on the Windows drive. That works, but it
+>    is slow and breaks file watching. Move the project to a folder under `~`.
+> 2. **No `docker` in WSL.** You do **not** install Docker inside Ubuntu. Docker Desktop runs on
+>    Windows and gives the `docker` command to your WSL distro. If `docker ps` in the WSL terminal says
+>    `command not found` or `could not be found in this WSL 2 distro`, open Docker Desktop → Settings →
+>    Resources → **WSL integration**, switch on your distro (e.g. Ubuntu), click *Apply & restart*, then
+>    open a new WSL terminal. Do not `apt install docker.io` as well. Two Dockers fight each other.
+> 3. **A second PostgreSQL on port 5432.** If PostgreSQL was ever installed with `apt` inside WSL, or
+>    on Windows itself, it may answer on port 5432 instead of the container. You then get
+>    `password authentication failed for user "billable"` even though the password is right. Stop it:
+>    `sudo service postgresql stop` in WSL (and `sudo systemctl disable postgresql` so it stays off),
+>    or on Windows open *Services*, find `postgresql-x64-…` and set it to *Manual* and *Stopped*.
+>
+> **Where is the database?** The container runs inside Docker Desktop, not in your Ubuntu. Docker
+> Desktop forwards port 5432 to both Windows and WSL, so `127.0.0.1:5432` works from the WSL terminal
+> (where Spring Boot runs) and from Windows tools such as DBeaver or DataGrip. You never need the WSL IP
+> address.
 
 Initializr generated a `compose.yaml` with example names (`mydatabase`, `myuser`) and the `latest`
 image tag. **Replace the whole file** with the agreed version, which is identical in both tracks:
@@ -715,6 +744,9 @@ repository with the teacher (Settings → Collaborators) if it is private.
 | `Connection to localhost:5432 refused` in a test | The test does not use the container: `@Import(TestcontainersConfiguration.class)` is missing, so Spring falls back to `spring.datasource.url` | Add the import (Step 9). |
 | `Could not find a valid Docker environment` in a test | Docker Desktop is not running (Testcontainers needs it) | Start Docker Desktop; `docker ps` must work in a terminal. |
 | `'dependencies.dependency.version' for org.testcontainers:postgresql:jar is missing` | Boot 3 artifact names copied from a tutorial | Use `testcontainers-postgresql` and `testcontainers-junit-jupiter` (Step 2). |
+| WSL: `The command 'docker' could not be found in this WSL 2 distro` | Docker Desktop's WSL integration is off for your distro | Docker Desktop → Settings → Resources → WSL integration → switch on your distro → *Apply & restart*. Open a new WSL terminal. |
+| WSL: `password authentication failed` although `down -v` did not help | Another PostgreSQL (installed with `apt` in WSL, or on Windows) answers on port 5432 | `sudo service postgresql stop` in WSL, or stop the `postgresql-x64-…` service in Windows *Services*. See the WSL box in Step 3. |
+| WSL: builds are very slow, or DevTools does not restart | The project is under `/mnt/c/…` (the Windows drive) | Move it into the Linux file system, e.g. `~/projects/billable`. |
 | `Cannot connect to the Docker daemon` / `Docker is not running` at start-up | Docker Desktop is not running | Start Docker Desktop and wait until it is ready. |
 | `Bind for 0.0.0.0:5432 failed: port is already allocated` | A local PostgreSQL or another container uses 5432 | Stop it (`docker ps`, stop the other container; stop the local PostgreSQL service). Or map `"5433:5432"` in `compose.yaml` and change the URL to `localhost:5433`. |
 | `password authentication failed for user "billable"` | The volume was created earlier with other credentials (e.g. Initializr's `myuser`) | `docker compose down -v`, then start again — the database is re-created with our values. |
@@ -752,7 +784,10 @@ repository with the teacher (Settings → Collaborators) if it is private.
 
 ## Independent work — solutions
 
-Try each task yourself first.
+> **The tasks are not here.** The task descriptions (Basic / Intermediate / Advanced, with acceptance
+> criteria) are in this lesson's [README.md → Independent work (~2 h)](README.md#independent-work-2-h).
+> Read them there first and build the features in your project. This section only contains the
+> solutions — try each task yourself, then open a solution to compare or when you are stuck.
 
 <details>
 <summary>Task 1 — About page (Basic)</summary>

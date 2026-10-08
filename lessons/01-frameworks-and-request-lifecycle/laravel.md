@@ -1,6 +1,6 @@
 # 01 — Frameworks and the request lifecycle · Laravel
 
-[← Concepts](README.md) · Starting point: nothing — this lesson creates the project · Estimated time in class: 2 h
+[← Concepts](README.md) · Starting point: nothing — this lesson creates the project · Estimated time in class: 2 h · Independent work tasks: [README](README.md#independent-work-2-h)
 
 ---
 
@@ -25,6 +25,19 @@ When you are done, `http://127.0.0.1:8000` shows a clean, styled page with a nav
 minutes and saves twenty.
 
 Open a terminal (on Windows: PowerShell or the Herd terminal) and run each command:
+
+> **Windows with WSL?** Choose one place to work and use it for everything. If you work in WSL,
+> install PHP, Composer and the Laravel installer **inside Ubuntu**, not with Herd. Herd runs on Windows
+> only, and a WSL terminal cannot use it. Then run every command in this lesson in the WSL terminal,
+> never in PowerShell. To install PHP 8.4 in Ubuntu:
+>
+> ```bash
+> sudo add-apt-repository ppa:ondrej/php
+> sudo apt update
+> sudo apt install php8.4-cli php8.4-pgsql php8.4-mbstring php8.4-xml php8.4-curl php8.4-zip unzip
+> ```
+>
+> Then install Composer by following [getcomposer.org/download](https://getcomposer.org/download/).
 
 ```bash
 php -v
@@ -58,7 +71,8 @@ On Windows PowerShell use `php -m | Select-String pgsql`. You must see **`pdo_pg
 `pgsql`). Herd includes it. If it is missing, see [Troubleshooting](#troubleshooting).
 
 Finally, start **Docker Desktop** and wait until it says it is running. `docker ps` must print a table
-header, not an error.
+header, not an error. In WSL, run `docker ps` in the WSL terminal. If `docker` is not found
+there, see the WSL box in [Step 3](#step-3--postgresql-in-docker).
 
 ---
 
@@ -182,6 +196,28 @@ older talk about `app/Http/Kernel.php` and `RouteServiceProvider`. Those files d
 
 **Why:** everybody gets exactly the same database version, with no installation on your laptop, and
 you can reset it in seconds.
+
+> **Windows with WSL — read this before you start.** The commands below are identical in WSL, but
+> three things go wrong:
+>
+> 1. **Wrong folder.** Your project must be in the Linux file system, e.g. `~/projects/billable`. Run
+>    `pwd`. If the path starts with `/mnt/c/`, the project is on the Windows drive. That works, but it
+>    is slow and breaks file watching. Move the project to a folder under `~`.
+> 2. **No `docker` in WSL.** You do **not** install Docker inside Ubuntu. Docker Desktop runs on
+>    Windows and gives the `docker` command to your WSL distro. If `docker ps` in the WSL terminal says
+>    `command not found` or `could not be found in this WSL 2 distro`, open Docker Desktop → Settings →
+>    Resources → **WSL integration**, switch on your distro (e.g. Ubuntu), click *Apply & restart*, then
+>    open a new WSL terminal. Do not `apt install docker.io` as well. Two Dockers fight each other.
+> 3. **A second PostgreSQL on port 5432.** If PostgreSQL was ever installed with `apt` inside WSL, or
+>    on Windows itself, it may answer on port 5432 instead of the container. You then get
+>    `password authentication failed for user "billable"` even though the password is right. Stop it:
+>    `sudo service postgresql stop` in WSL (and `sudo systemctl disable postgresql` so it stays off),
+>    or on Windows open *Services*, find `postgresql-x64-…` and set it to *Manual* and *Stopped*.
+>
+> **Where is the database?** The container runs inside Docker Desktop, not in your Ubuntu. Docker
+> Desktop forwards port 5432 to both Windows and WSL, so `127.0.0.1:5432` works from the WSL terminal
+> (where Laravel runs) and from Windows tools such as DBeaver or DataGrip. You never need the WSL IP
+> address.
 
 Create `compose.yaml` in the project root (the same folder as `artisan`):
 
@@ -624,6 +660,10 @@ among them. Share the repository with the teacher (Settings → Collaborators) i
 | `SQLSTATE[08006] … Connection refused` | PostgreSQL is not running or not on port 5432 | Start Docker Desktop, run `docker compose up -d`, wait for `(healthy)` in `docker compose ps`. |
 | `password authentication failed for user "billable"` | The volume was created earlier with other credentials (the env vars only apply on the first start), or `.env` has a typo | Check `.env`. If it is correct, reset the database: `docker compose down -v` then `docker compose up -d`. |
 | `Bind for 0.0.0.0:5432 failed: port is already allocated` | Another PostgreSQL (local installation or another project's container) uses port 5432 | Stop the other one (`docker ps` to find containers; stop a local PostgreSQL service in Services / `brew services stop postgresql`). Or map another port: `"5433:5432"` in `compose.yaml` and `DB_PORT=5433` in `.env`. |
+| WSL: `The command 'docker' could not be found in this WSL 2 distro` | Docker Desktop's WSL integration is off for your distro | Docker Desktop → Settings → Resources → WSL integration → switch on your distro → *Apply & restart*. Open a new WSL terminal. |
+| WSL: `password authentication failed` although `.env` is correct and `down -v` did not help | Another PostgreSQL (installed with `apt` in WSL, or on Windows) answers on port 5432 | `sudo service postgresql stop` in WSL, or stop the `postgresql-x64-…` service in Windows *Services*. See the WSL box in Step 3. |
+| WSL: everything is very slow, or file changes are not picked up | The project is under `/mnt/c/…` (the Windows drive) | Move it into the Linux file system, e.g. `~/projects/billable`. |
+| WSL: `php` / `composer` not found, though Herd is installed | Herd runs on Windows only and is not visible in WSL | Install PHP 8.4 and Composer inside Ubuntu (Step 0). |
 | `Cannot connect to the Docker daemon` / `error during connect` | Docker Desktop is not running | Start Docker Desktop and wait until it is ready. |
 | `relation "sessions" does not exist` on the first page load | Migrations have not run | `php artisan migrate`. |
 | `Route [home] not defined.` | The layout uses `route('home')` but the route has no name, or the name is misspelled | Add `->name('home')` in `routes/web.php`. Run `php artisan route:list`. |
@@ -651,7 +691,10 @@ among them. Share the repository with the teacher (Settings → Collaborators) i
 
 ## Independent work — solutions
 
-Try each task yourself first. Open a solution to compare or when you are stuck.
+> **The tasks are not here.** The task descriptions (Basic / Intermediate / Advanced, with acceptance
+> criteria) are in this lesson's [README.md → Independent work (~2 h)](README.md#independent-work-2-h).
+> Read them there first and build the features in your project. This section only contains the
+> solutions — try each task yourself, then open a solution to compare or when you are stuck.
 
 <details>
 <summary>Task 1 — About page (Basic)</summary>

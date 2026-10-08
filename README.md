@@ -96,12 +96,13 @@ Each lesson folder contains three files:
 
 | File | What it is | When to read it |
 |---|---|---|
-| `README.md` | **Concepts.** Why the topic matters, the ideas and rules, common mistakes, independent work, self-check, checklist | Before class (10 min skim) and again when doing the independent work |
+| `README.md` | **Concepts + tasks.** Why the topic matters, the ideas and rules, common mistakes, **the independent work task descriptions**, self-check, checklist | Before class (10 min skim) and again when doing the independent work |
 | `laravel.md` | **Walkthrough.** Every step we build in class, with complete code and explanations, plus solutions | During class and when catching up |
 | `spring-boot.md` | Same walkthrough for Spring Boot | During class and when catching up |
 
-Independent-work solutions are at the bottom of each walkthrough, collapsed. Try first; open them when
-you are stuck or to compare after you finish.
+**Where is the independent work?** The *tasks* are in the lesson's `README.md`, section "Independent work
+(~2 h)". The *solutions* are at the bottom of each walkthrough, collapsed, under "Independent work —
+solutions". Try first; open them when you are stuck or to compare after you finish.
 
 ---
 
@@ -146,6 +147,10 @@ Install before lesson 01. Lesson 01's walkthrough has details and troubleshootin
 | Git + a GitHub account | PHP 8.4 and Composer ([Laravel Herd](https://herd.laravel.com) is the easiest route on Windows/macOS) | JDK 25 (e.g. Eclipse Temurin) |
 | Docker Desktop (runs PostgreSQL) | Laravel installer (`composer global require laravel/installer`) | IntelliJ IDEA (Community is enough) or VS Code with Java extensions |
 | A code editor (VS Code, PhpStorm, IntelliJ) | | Maven comes with the project (`./mvnw`) |
+
+**Windows with WSL:** install Docker Desktop on Windows and switch on WSL integration for your distro.
+Install PHP/Composer or the JDK **inside WSL**, and keep the project in the Linux file system (`~/…`, not
+`/mnt/c/…`). Lesson 01 has a WSL box in Steps 0 and 3.
 
 Spring Boot track on a PC where you cannot install or run a JDK? Docker is enough: see
 [Spring Boot track — everything in Docker](SPRING-BOOT-IN-DOCKER.md).
